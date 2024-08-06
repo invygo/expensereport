@@ -16,8 +16,8 @@ class FakeExpenseReport extends ExpenseReport {
     }
 
     @Override
-    public Date DateNow() {
-        return this.date;
+    public Long DateNow() {
+        return this.date.getTime();
     }
 }
 
@@ -29,9 +29,10 @@ public class ExpenseReportTest {
 
         Date date = new Date();
         ExpenseReport expenseReport = new FakeExpenseReport(date);
+
         expenseReport.printReport(List.of());
 
-        String expectedOutput = "Expenses " + date + "\n" +
+        String expectedOutput = "Expenses " + date.getTime() + "\n" +
                                 "Meal expenses: 0\n"+
                                 "Total expenses: 0\n";
 

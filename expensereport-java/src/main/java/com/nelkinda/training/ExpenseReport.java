@@ -50,7 +50,7 @@ public class ExpenseReport {
         System.out.println("Total expenses: " + total);
     }
 
-    public Date DateNow() {
-        return new Date();
+    public Long DateNow() {
+        return new Date().getTime();
     }
 }
