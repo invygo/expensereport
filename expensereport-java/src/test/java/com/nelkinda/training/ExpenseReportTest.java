@@ -27,10 +27,11 @@ public class ExpenseReportTest {
         final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStreamCaptor));
 
-        ExpenseReport expenseReport = new FakeExpenseReport(new Date());
+        Date date = new Date();
+        ExpenseReport expenseReport = new FakeExpenseReport(date);
         expenseReport.printReport(List.of());
 
-        String expectedOutput = "Expenses " + new Date() + "\n" +
+        String expectedOutput = "Expenses " + date + "\n" +
                                 "Meal expenses: 0\n"+
                                 "Total expenses: 0\n";
 
