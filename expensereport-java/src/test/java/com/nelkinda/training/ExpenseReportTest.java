@@ -14,7 +14,7 @@ public class ExpenseReportTest {
         final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStreamCaptor));
 
-        ExpenseReport expenseReport = new ExpenseReport();
+        ExpenseReport expenseReport = new ExpenseReport(new Date());
         expenseReport.printReport(List.of());
 
         String expectedOutput = "Expenses " + new Date() + "\n" +

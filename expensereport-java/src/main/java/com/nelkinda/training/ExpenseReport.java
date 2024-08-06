@@ -14,7 +14,11 @@ class Expense {
 
 public class ExpenseReport {
 
-    private final Date date = new Date();
+    private Date date = new Date();
+
+    public ExpenseReport(Date date) {
+        this.date = date;
+    }
 
     public void printReport(List<Expense> expenses) {
         int total = 0;
@@ -29,15 +33,15 @@ public class ExpenseReport {
 
             String expenseName = "";
             switch (expense.type) {
-            case DINNER:
-                expenseName = "Dinner";
-                break;
-            case BREAKFAST:
-                expenseName = "Breakfast";
-                break;
-            case CAR_RENTAL:
-                expenseName = "Car Rental";
-                break;
+                case DINNER:
+                    expenseName = "Dinner";
+                    break;
+                case BREAKFAST:
+                    expenseName = "Breakfast";
+                    break;
+                case CAR_RENTAL:
+                    expenseName = "Car Rental";
+                    break;
             }
 
             String mealOverExpensesMarker = expense.type == ExpenseType.DINNER && expense.amount > 5000 || expense.type == ExpenseType.BREAKFAST && expense.amount > 1000 ? "X" : " ";
