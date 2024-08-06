@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Date;
 import java.util.List;
 
 public class ExpenseReportTest {
@@ -16,8 +17,10 @@ public class ExpenseReportTest {
         ExpenseReport expenseReport = new ExpenseReport();
         expenseReport.printReport(List.of());
 
-        Assertions.assertEquals("Expenses Tue Aug 06 17:17:21 GST 2024\n" +
-                "Meal expenses: 0\n" +
-                "Total expenses: 0\n", outputStreamCaptor.toString());
+        String expectedOutput = "Expenses " + new Date() + "\n" +
+                                "Meal expenses: 0\n"+
+                                "Total expenses: 0\n";
+
+        Assertions.assertEquals(expectedOutput, outputStreamCaptor.toString());
     }
 }
