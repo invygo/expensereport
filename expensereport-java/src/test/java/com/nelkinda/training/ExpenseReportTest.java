@@ -18,6 +18,6 @@ public class ExpenseReportTest {
 
         Assertions.assertEquals("Expenses Tue Aug 06 17:17:21 GST 2024\n" +
                 "Meal expenses: 0\n" +
-                "Total expenses: 0", outputStreamCaptor.toString());
+                "Total expenses: 0\n", outputStreamCaptor.toString());
     }
 }
