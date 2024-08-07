@@ -13,11 +13,18 @@ class Expense {
 }
 
 public class ExpenseReport {
+
+    private Date date = new Date();
+
+    public ExpenseReport(Date date) {
+        this.date = date;
+    }
+
     public void printReport(List<Expense> expenses) {
         int total = 0;
         int mealExpenses = 0;
 
-        System.out.println("Expenses " + new Date());
+        System.out.println("Expenses " + date);
 
         for (Expense expense : expenses) {
             if (expense.type == ExpenseType.DINNER || expense.type == ExpenseType.BREAKFAST) {

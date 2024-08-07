@@ -5,16 +5,18 @@ import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Date;
 import java.util.List;
 
 public class ExpenseReportTest {
     @Test
     public void characterizationTest() {
+        Date date = new Date();
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
-        ExpenseReport expenseReport = new ExpenseReport();
+        ExpenseReport expenseReport = new ExpenseReport(date);
         expenseReport.printReport(List.of());
-        String expectedOutput = "Expenses Wed Aug 07 17:24:19 GST 2024\n" +
+        String expectedOutput = "Expenses " + date + "\n" +
                 "Meal expenses: 0\n" +
                 "Total expenses: 0\n";
 
