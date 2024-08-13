@@ -23,7 +23,7 @@ class FakeExpenseReport extends ExpenseReport {
 
 public class ExpenseReportTest {
     @Test
-    public void charectarizationTest() {
+    public void characterizationTest() {
         final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStreamCaptor));
 
