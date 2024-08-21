@@ -49,19 +49,25 @@ public class ExpenseReportTest {
         expensiveBreakfastExpense.type = ExpenseType.BREAKFAST;
         expensiveBreakfastExpense.amount = 5500;
 
+        Expense expensiveDinnerExpense = new Expense();
+        expensiveDinnerExpense.type = ExpenseType.DINNER;
+        expensiveDinnerExpense.amount = 5500;
+
         expenseList.add(dinnerExpense);
         expenseList.add(breakfastExpense);
         expenseList.add(carRentalExpense);
         expenseList.add(expensiveBreakfastExpense);
+        expenseList.add(expensiveDinnerExpense);
         expenseReport.printReport(expenseList);
 
         String expectedOutput = "Expenses " + date + "\n" +
                 "Dinner\t1000\t \n" +
                 "Breakfast\t1000\t \n" +
                 "Car Rental\t1000\t \n" +
-                "Breakfast\t5500\tX\n"+
-                "Meal expenses: 7500\n" +
-                "Total expenses: 8500\n";
+                "Breakfast\t5500\tX\n" +
+                "Dinner\t5500\tX\n" +
+                "Meal expenses: 13000\n" +
+                "Total expenses: 14000\n";
         Assertions.assertEquals(expectedOutput, out.toString());
     }
 }
