@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -26,7 +25,7 @@ public class ExpenseReportTest {
     }
 
     @Test
-    public void testPrintReport_WithDifferentTypeOfExpense() {
+    public void testPrintReportWithDifferentTypeOfExpense() {
         Date date = new Date();
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
@@ -42,15 +41,21 @@ public class ExpenseReportTest {
         breakfastExpense.type = ExpenseType.BREAKFAST;
         breakfastExpense.amount = 1000;
 
+        Expense carRentalExpense = new Expense();
+        carRentalExpense.type = ExpenseType.CAR_RENTAL;
+        carRentalExpense.amount = 1000;
+
         expenseList.add(dinnerExpense);
         expenseList.add(breakfastExpense);
+        expenseList.add(carRentalExpense);
         expenseReport.printReport(expenseList);
 
         String expectedOutput = "Expenses " + date + "\n" +
                 "Dinner\t1000\t \n" +
                 "Breakfast\t1000\t \n" +
+                "Car Rental\t1000\t \n" +
                 "Meal expenses: 2000\n" +
-                "Total expenses: 2000\n";
+                "Total expenses: 3000\n";
         Assertions.assertEquals(expectedOutput, out.toString());
     }
 }
