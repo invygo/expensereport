@@ -23,7 +23,7 @@ public class ExpenseReport {
 
         for (Expense expense : expenses) {
             ExpenseType type = expense.type;
-            if (isDinner(type) || type == ExpenseType.BREAKFAST) {
+            if (type == ExpenseType.DINNER || type == ExpenseType.BREAKFAST) {
                 mealExpenses += expense.amount;
             }
 
