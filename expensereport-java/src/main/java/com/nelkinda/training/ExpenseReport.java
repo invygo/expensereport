@@ -22,20 +22,21 @@ public class ExpenseReport {
         System.out.println("Expenses " + date);
 
         for (Expense expense : expenses) {
-            if (expense.type == ExpenseType.DINNER || expense.type == ExpenseType.BREAKFAST) {
+            ExpenseType type = expense.type;
+            if (isDinner(type) || type == ExpenseType.BREAKFAST) {
                 mealExpenses += expense.amount;
             }
 
-            String expenseName = switch (expense.type) {
+            String expenseName = switch (type) {
                 case DINNER -> "Dinner";
                 case BREAKFAST -> "Breakfast";
                 case CAR_RENTAL -> "Car Rental";
             };
 
             String mealOverExpensesMarker;
-            if (expense.type == ExpenseType.DINNER && expense.amount > 5000) {
+            if (type == ExpenseType.DINNER && expense.amount > 5000) {
                 mealOverExpensesMarker = "X";
-            } else if (expense.type == ExpenseType.BREAKFAST && expense.amount > 1000) {
+            } else if (type == ExpenseType.BREAKFAST && expense.amount > 1000) {
                 mealOverExpensesMarker = "X";
             } else {
                 mealOverExpensesMarker = " ";
@@ -48,5 +49,9 @@ public class ExpenseReport {
 
         System.out.println("Meal expenses: " + mealExpenses);
         System.out.println("Total expenses: " + total);
+    }
+
+    private static boolean isDinner(ExpenseType type) {
+        return type == ExpenseType.DINNER;
     }
 }
