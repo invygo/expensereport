@@ -47,7 +47,9 @@ public class ExpenseReport {
             if (expense.type.isMeal()) {
                 mealExpenses += expense.amount;
             }
+        }
 
+        for (Expense expense : expenses) {
 
             String mealOverExpensesMarker;
             if (expense.type == ExpenseType.DINNER && expense.amount > 5000) {
