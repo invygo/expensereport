@@ -6,6 +6,10 @@ import java.util.List;
 enum ExpenseType {
     DINNER, BREAKFAST, CAR_RENTAL;
 
+    boolean isBreakfast() {
+        return this == BREAKFAST;
+    }
+
     boolean isDinner() {
         return this == DINNER;
     }
@@ -56,10 +60,6 @@ public class ExpenseReport {
     }
 
     private static boolean isMeal(ExpenseType type) {
-        return type.isDinner() || isBreakfast(type);
-    }
-
-    private static boolean isBreakfast(ExpenseType type) {
-        return type == ExpenseType.BREAKFAST;
+        return type.isDinner() || type.isBreakfast();
     }
 }
