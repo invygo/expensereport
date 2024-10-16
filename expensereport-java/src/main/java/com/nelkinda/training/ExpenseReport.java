@@ -34,21 +34,21 @@ public class ExpenseReport {
         System.out.println("Expenses " + date);
 
         for (Expense expense : expenses) {
-            ExpenseType type = expense.type;
-            if (type.isMeal()) {
+            ExpenseType expenseType = expense.type;
+            if (expenseType.isMeal()) {
                 mealExpenses += expense.amount;
             }
 
-            String expenseName = switch (type) {
+            String expenseName = switch (expenseType) {
                 case DINNER -> "Dinner";
                 case BREAKFAST -> "Breakfast";
                 case CAR_RENTAL -> "Car Rental";
             };
 
             String mealOverExpensesMarker;
-            if (type == ExpenseType.DINNER && expense.amount > 5000) {
+            if (expenseType == ExpenseType.DINNER && expense.amount > 5000) {
                 mealOverExpensesMarker = "X";
-            } else if (type == ExpenseType.BREAKFAST && expense.amount > 1000) {
+            } else if (expenseType == ExpenseType.BREAKFAST && expense.amount > 1000) {
                 mealOverExpensesMarker = "X";
             } else {
                 mealOverExpensesMarker = " ";
