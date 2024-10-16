@@ -23,7 +23,7 @@ public class ExpenseReport {
 
         for (Expense expense : expenses) {
             ExpenseType type = expense.type;
-            if (isDinner(type) || isBreakfast(type)) {
+            if (isMeal(type)) {
                 mealExpenses += expense.amount;
             }
 
@@ -49,6 +49,10 @@ public class ExpenseReport {
 
         System.out.println("Meal expenses: " + mealExpenses);
         System.out.println("Total expenses: " + total);
+    }
+
+    private static boolean isMeal(ExpenseType type) {
+        return isDinner(type) || isBreakfast(type);
     }
 
     private static boolean isBreakfast(ExpenseType type) {
