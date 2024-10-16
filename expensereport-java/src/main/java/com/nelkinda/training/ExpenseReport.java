@@ -4,7 +4,13 @@ import java.util.Date;
 import java.util.List;
 
 enum ExpenseType {
-    DINNER, BREAKFAST, CAR_RENTAL;
+    DINNER("Dinner"), BREAKFAST("Breakfast"), CAR_RENTAL("Car Rental");
+
+    private final String name;
+
+    ExpenseType(String name) {
+        this.name = name;
+    }
 
     String expenseName() {
         return switch (this) {
