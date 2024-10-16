@@ -44,18 +44,16 @@ public class ExpenseReport {
         System.out.println("Expenses " + date);
 
         for (Expense expense : expenses) {
-            ExpenseType expenseType = expense.type;
-
-            if (expenseType.isMeal()) {
+            if (expense.type.isMeal()) {
                 mealExpenses += expense.amount;
             }
 
-            String expenseName = expenseType.expenseName();
+            String expenseName = expense.type.expenseName();
 
             String mealOverExpensesMarker;
-            if (expenseType == ExpenseType.DINNER && expense.amount > 5000) {
+            if (expense.type == ExpenseType.DINNER && expense.amount > 5000) {
                 mealOverExpensesMarker = "X";
-            } else if (expenseType == ExpenseType.BREAKFAST && expense.amount > 1000) {
+            } else if (expense.type == ExpenseType.BREAKFAST && expense.amount > 1000) {
                 mealOverExpensesMarker = "X";
             } else {
                 mealOverExpensesMarker = " ";
