@@ -13,11 +13,7 @@ enum ExpenseType {
     }
 
     String expenseName() {
-        return switch (this) {
-            case DINNER -> "Dinner";
-            case BREAKFAST -> "Breakfast";
-            case CAR_RENTAL -> "Car Rental";
-        };
+        return this.name;
     }
 
     boolean isMeal() {
