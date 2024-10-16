@@ -6,6 +6,14 @@ import java.util.List;
 enum ExpenseType {
     DINNER, BREAKFAST, CAR_RENTAL;
 
+    String expenseName() {
+        return switch (this) {
+            case DINNER -> "Dinner";
+            case BREAKFAST -> "Breakfast";
+            case CAR_RENTAL -> "Car Rental";
+        };
+    }
+
     boolean isMeal() {
         return isDinner() || isBreakfast();
     }
@@ -40,7 +48,7 @@ public class ExpenseReport {
                 mealExpenses += expense.amount;
             }
 
-            String expenseName = expenseName(expenseType);
+            String expenseName = expenseType.expenseName();
 
             String mealOverExpensesMarker;
             if (expenseType == ExpenseType.DINNER && expense.amount > 5000) {
@@ -58,14 +66,6 @@ public class ExpenseReport {
 
         System.out.println("Meal expenses: " + mealExpenses);
         System.out.println("Total expenses: " + total);
-    }
-
-    private static String expenseName(ExpenseType expenseType) {
-        return switch (expenseType) {
-            case DINNER -> "Dinner";
-            case BREAKFAST -> "Breakfast";
-            case CAR_RENTAL -> "Car Rental";
-        };
     }
 
 }
