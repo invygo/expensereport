@@ -53,15 +53,16 @@ public class ExpenseReport {
         for (Expense expense : expenses) {
 
             String mealOverExpensesMarker;
-            if (expense.type == ExpenseType.DINNER && expense.amount > 5000) {
+            ExpenseType expenseType = expense.type;
+            if (expenseType == ExpenseType.DINNER && expense.amount > 5000) {
                 mealOverExpensesMarker = "X";
-            } else if (expense.type == ExpenseType.BREAKFAST && expense.amount > 1000) {
+            } else if (expenseType == ExpenseType.BREAKFAST && expense.amount > 1000) {
                 mealOverExpensesMarker = "X";
             } else {
                 mealOverExpensesMarker = " ";
             }
 
-            System.out.println(expense.type.expenseName() + "\t" + expense.amount + "\t" + mealOverExpensesMarker);
+            System.out.println(expenseType.expenseName() + "\t" + expense.amount + "\t" + mealOverExpensesMarker);
 
             total += expense.amount;
         }
