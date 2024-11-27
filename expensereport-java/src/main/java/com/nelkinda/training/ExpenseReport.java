@@ -44,7 +44,8 @@ public class ExpenseReport {
         System.out.println("Expenses " + date);
 
         for (Expense expense : expenses) {
-            if (expense.type.isMeal()) {
+            ExpenseType expenseType = expense.type;
+            if (expenseType.isMeal()) {
                 mealExpenses += expense.amount;
             }
         }
